@@ -4,16 +4,31 @@
  */
 
 import { motion } from "motion/react";
-import { Facebook, Instagram, Phone, ExternalLink, Sparkles, QrCode } from "lucide-react";
+import { Facebook, Instagram, Phone, ExternalLink, Sparkles } from "lucide-react";
 
-// Custom Snapchat icon (More accurate Ghost shape)
-const SnapchatIcon = ({ className }: { className?: string }) => (
+// Custom Logo component to match the user's image
+const CristalRevaLogo = ({ className, size = 120 }: { className?: string, size?: number }) => (
+  <div className={`relative flex items-center justify-center ${className}`} style={{ width: size, height: size }}>
+    <img 
+      src="/cristal-reva-logo.jpg" 
+      alt="Cristal Reva Logo" 
+      className="w-full h-full object-cover rounded-full brightness-110 contrast-110"
+      style={{ filter: 'invert(1) sepia(1) saturate(5) hue-rotate(-10deg) brightness(1.2)' }}
+      referrerPolicy="no-referrer"
+    />
+  </div>
+);
+
+// Custom Snapchat icon (Official Ghost shape)
+const SnapchatIcon = ({ className, size = 24 }: { className?: string, size?: number }) => (
   <svg 
+    width={size}
+    height={size}
     viewBox="0 0 24 24" 
-    fill="currentColor" 
     className={className}
+    fill="currentColor"
   >
-    <path d="M12 3c-2.485 0-4.5 2.015-4.5 4.5 0 .73.175 1.418.484 2.025-.31.31-.62.62-.62 1.238 0 .618.62.927 1.238.927.31 0 .62-.113.927-.31.31.478.927.927 1.546.927.618 0 1.124-.449 1.433-.927.31.197.618.31.927.31.618 0 1.238-.31 1.238-.927 0-.618-.31-.928-.62-1.238.31-.607.485-1.295.485-2.025 0-2.485-2.015-4.5-4.5-4.5zm-4.5 9c-1.242 0-2.25 1.008-2.25 2.25s1.008 2.25 2.25 2.25h9c1.242 0 2.25-1.008 2.25-2.25s-1.008-2.25-2.25-2.25" />
+    <path d="M12 3c-2.69 0-4.87 2.18-4.87 4.87 0 .8.2 1.55.55 2.22-.38.38-.66.85-.66 1.38 0 .7.66 1.11 1.25 1.11.38 0 .7-.11.96-.38.4.53 1.02.91 1.73.91.71 0 1.33-.38 1.73-.91.26.27.58.38.96.38.59 0 1.25-.41 1.25-1.11 0-.53-.28-1-.66-1.38.35-.67.55-1.42.55-2.22C16.87 5.18 14.69 3 12 3zm-4.87 9.75c-1.31 0-2.37 1.06-2.37 2.37 0 1.31 1.06 2.37 2.37 2.37h9.75c1.31 0 2.37-1.06 2.37-2.37 0-1.31-1.06-2.37-2.37-2.37" />
   </svg>
 );
 
@@ -45,12 +60,12 @@ const SocialButton = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay, duration: 0.5 }}
-    whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
+    whileHover={{ scale: 1.02, backgroundColor: "rgba(251, 191, 36, 0.08)" }}
     whileTap={{ scale: 0.98 }}
-    className="flex items-center justify-between w-full p-5 mb-4 transition-all border rounded-3xl bg-white/5 border-white/10 backdrop-blur-xl group"
+    className="flex items-center justify-between w-full p-5 mb-4 transition-all border rounded-3xl bg-amber-500/5 border-amber-500/10 backdrop-blur-xl group"
   >
     <div className="flex items-center gap-2">
-      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 group-hover:bg-white/10 transition-all">
+      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/5 group-hover:bg-amber-500/10 transition-all">
         <ExternalLink size={16} className="text-white/20 group-hover:text-white transition-colors" />
       </div>
     </div>
@@ -90,22 +105,22 @@ export default function App() {
       label: "سناپچات",
       username: "cristalrevacr20",
       href: "https://www.snapchat.com/add/cristalrevacr20",
-      colorClass: "bg-[#FFFC00] group-hover:bg-[#FFFC00]/90 shadow-yellow-500/20",
-      iconColor: "text-white",
+      colorClass: "bg-yellow-400/10 group-hover:bg-yellow-400/20 shadow-yellow-500/5",
+      iconColor: "text-yellow-400",
       labelColor: "text-yellow-400"
     },
     {
       icon: Phone,
       label: "پەیوەندی",
       username: "4694 194 0750",
-      href: "tel:07501949446",
+      href: "tel:07501944694",
       colorClass: "bg-green-600/20 group-hover:bg-green-600/30 shadow-green-500/5",
       iconColor: "text-green-400"
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#020202] text-white font-sans selection:bg-amber-500/30 overflow-x-hidden" dir="rtl">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-amber-500/30 overflow-x-hidden" dir="rtl">
       {/* Background Decorative Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-amber-600/10 blur-[150px] animate-pulse" />
@@ -132,8 +147,8 @@ export default function App() {
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               className="absolute inset-[-6px] border border-amber-500/10 rounded-full"
             />
-            <div className="relative flex items-center justify-center w-36 h-36 overflow-hidden border border-amber-200/20 rounded-full bg-gradient-to-b from-zinc-900 to-black shadow-[0_0_50px_rgba(251,191,36,0.1)]">
-              <span className="text-6xl font-serif italic font-bold tracking-tighter text-amber-200 drop-shadow-2xl">CR</span>
+            <div className="relative flex items-center justify-center w-40 h-40 overflow-hidden border-2 border-amber-500/30 rounded-full bg-black shadow-[0_0_60px_rgba(251,191,36,0.15)]">
+              <CristalRevaLogo size={120} />
             </div>
             <motion.div 
               initial={{ opacity: 0, scale: 0 }}
@@ -145,14 +160,14 @@ export default function App() {
             </motion.div>
           </div>
 
-          <h1 className="text-5xl font-serif italic tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/40 mb-3">
+          <h1 className="text-5xl font-serif italic tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-400 to-amber-600 mb-3">
             Cristal Reva
           </h1>
           <div className="flex flex-col items-center gap-1">
             <p className="text-[11px] tracking-[0.4em] uppercase text-amber-200/70 font-semibold">
               Luxury & Style
             </p>
-            <p className="text-sm text-white/40 font-medium italic">
+            <p className="text-sm text-amber-200/40 font-medium italic">
               جوانی و شیکپۆشی لای ئێمەیە
             </p>
           </div>
@@ -179,11 +194,25 @@ export default function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="mt-16 text-center"
+          className="mt-16 text-center flex flex-col items-center gap-6"
         >
           <p className="text-[9px] tracking-[0.4em] uppercase text-white/20 font-medium">
             © 2026 Cristal Reva • Erbil, Kurdistan
           </p>
+          
+          <div className="flex flex-col items-center gap-3 pt-6 border-t border-amber-500/10 w-full">
+            <p className="text-amber-500/40 text-xs font-medium tracking-wide">
+              دروست کراوە لە لایەن چاپلین چاپەوە
+            </p>
+            <div className="w-12 h-12 rounded-xl overflow-hidden border border-amber-500/20 shadow-lg shadow-amber-500/5 bg-white/5 p-1">
+              <img 
+                src="/chaplin.jpg" 
+                alt="Chaplin Chap Logo" 
+                className="w-full h-full object-contain rounded-lg"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
         </motion.footer>
       </main>
     </div>
