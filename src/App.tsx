@@ -12,8 +12,7 @@ const CristalRevaLogo = ({ className, size = 120 }: { className?: string, size?:
     <img 
       src="/cristal-reva-logo.jpg" 
       alt="Cristal Reva Logo" 
-      className="w-full h-full object-cover rounded-full brightness-110 contrast-110"
-      style={{ filter: 'invert(1) sepia(1) saturate(5) hue-rotate(-10deg) brightness(1.2)' }}
+      className="w-full h-full object-cover rounded-full"
       referrerPolicy="no-referrer"
     />
   </div>
