@@ -28,107 +28,34 @@ const CustomDiamondIcon = ({ size = 24, className = "" }: { size?: number, class
     <path d="M2 10h20" />
   </svg>
 );
-// Custom Logo component matching the user's reference image exactly
-const CristalRevaLogo = ({ className, size = 140 }: { className?: string, size?: number }) => {
+/// Custom Logo component - Elegant, Modern, and Luxury focused
+const CristalRevaLogo = ({ className, size = 160 }: { className?: string, size?: number }) => {
   return (
     <div className={`relative flex items-center justify-center ${className}`} style={{ width: size, height: size }}>
-      <svg 
-        viewBox="0 0 512 512" 
-        className="w-full h-full fill-none stroke-amber-400"
-        strokeWidth="4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        {/* Main Circle Frame */}
-        <circle cx="256" cy="256" r="210" strokeWidth="2" strokeOpacity="0.5" />
-        
-        {/* Arched Text Path */}
-        <defs>
-          <path id="textPathCurve" d="M 80,256 A 176,176 0 0,1 432,256" />
-        </defs>
-        <text className="fill-amber-400 font-serif font-bold text-[42px] uppercase tracking-[0.15em]">
-          <textPath href="#textPathCurve" startOffset="50%" textAnchor="middle">
-            CRISTAL • REVA
-          </textPath>
-        </text>
+      {/* Animated Outer Glow */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 bg-amber-500/20 blur-2xl rounded-full"
+      />
 
-        {/* Detailed Brilliant Cut Diamond */}
-        <g transform="translate(256, 160) scale(1.2)">
-          {/* Top facets */}
-          <path d="M-40,0 L40,0 L25,-25 L-25,-25 Z" />
-          <path d="M-25,-25 L0,-40 L25,-25" />
-          <path d="M-40,0 L-25,-25 M40,0 L25,-25 M0,-40 L0,-25" />
-          {/* Bottom facets */}
-          <path d="M-40,0 L0,50 L40,0" />
-          <path d="M-40,0 L-15,15 L0,50 L15,15 L40,0" />
-          <path d="M-15,15 L15,15 M0,0 L0,50" />
-        </g>
-
-        {/* Detailed Hand with Ring */}
-        <g transform="translate(256, 280)">
-          {/* Hand Silhouette */}
-          <path d="M-140,50 C-120,20 -80,0 -20,0 C20,0 60,10 90,30 C110,45 130,70 140,90" strokeWidth="5" />
-          {/* Fingers */}
-          <path d="M20,0 L80,-40 C95,-50 115,-45 125,-30 C135,-15 130,5 115,15 L60,40" strokeWidth="4" />
-          <path d="M40,15 L100,-15 C115,-25 135,-20 145,-5 C155,10 150,30 135,40 L80,65" strokeWidth="4" />
-          <path d="M55,35 L110,15 C125,10 145,15 155,30 C165,45 160,65 145,75 L90,95" strokeWidth="4" />
-          {/* Thumb */}
-          <path d="M-60,15 C-40,5 -10,5 20,15" strokeWidth="5" />
-          
-          {/* The Ring on the finger */}
-          <g transform="translate(75, 25) rotate(-35)">
-            <ellipse cx="0" cy="0" rx="12" ry="6" strokeWidth="3" />
-            <path d="M-5,-12 L5,-12 L8,-5 L0,0 L-8,-5 Z" fill="rgba(251, 191, 36, 0.3)" />
-            <path d="M-5,-12 L5,-12 L8,-5 L0,0 L-8,-5 Z" strokeWidth="2" />
-          </g>
-        </g>
-
-        {/* Detailed Floral Wreath */}
-        <g transform="translate(256, 420)">
-          {/* Center Flowers */}
-          <g transform="translate(0, -20)">
-            <circle cx="0" cy="0" r="12" fill="rgba(251, 191, 36, 0.2)" />
-            <path d="M-25,-15 Q-15,15 0,0 Q15,15 25,-15" />
-            {[0, 72, 144, 216, 288].map(ang => (
-              <circle key={ang} cx={20 * Math.cos(ang * Math.PI / 180)} cy={20 * Math.sin(ang * Math.PI / 180)} r="8" />
-            ))}
-          </g>
-          <g transform="translate(-60, -10) scale(0.8)">
-            <circle cx="0" cy="0" r="10" />
-            {[0, 72, 144, 216, 288].map(ang => (
-              <circle key={ang} cx={18 * Math.cos(ang * Math.PI / 180)} cy={18 * Math.sin(ang * Math.PI / 180)} r="7" />
-            ))}
-          </g>
-          <g transform="translate(60, -10) scale(0.8)">
-            <circle cx="0" cy="0" r="10" />
-            {[0, 72, 144, 216, 288].map(ang => (
-              <circle key={ang} cx={18 * Math.cos(ang * Math.PI / 180)} cy={18 * Math.sin(ang * Math.PI / 180)} r="7" />
-            ))}
-          </g>
-
-          {/* Leaves curving up */}
-          <path d="M-100,-20 C-150,-40 -190,-100 -200,-180" strokeWidth="3" />
-          <path d="M100,-20 C150,-40 190,-100 200,-180" strokeWidth="3" />
-          
-          {/* Individual Leaves */}
-          {[-120, -140, -160, -180].map(y => (
-            <g key={y} transform={`translate(-180, ${y}) rotate(-45)`}>
-              <path d="M0,0 Q15,-15 30,0 Q15,15 0,0" fill="rgba(251, 191, 36, 0.1)" />
-            </g>
-          ))}
-          {[ -120, -140, -160, -180].map(y => (
-            <g key={y} transform={`translate(180, ${y}) rotate(45)`}>
-              <path d="M0,0 Q-15,-15 -30,0 Q-15,15 0,0" fill="rgba(251, 191, 36, 0.1)" />
-            </g>
-          ))}
-        </g>
-      </svg>
-      
-      {/* Glow Effect */}
-      <div className="absolute inset-0 bg-amber-500/5 blur-3xl rounded-full -z-10" />
+      <img 
+        src="https://i.ibb.co/LdTgfFyt/image.png" 
+        alt="Cristal Reva Logo" 
+        className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(251,191,36,0.4)]"
+        referrerPolicy="no-referrer"
+        onError={(e) => {
+          // Fallback if direct link guess fails
+          (e.target as HTMLImageElement).src = "https://i.ibb.co/LdTgfFyt/logo.png";
+        }}
+      />
     </div>
   );
 };
+;
 
 // Custom Snapchat icon (Official Ghost shape)
 const SnapchatIcon = ({ className, size = 24 }: { className?: string, size?: number }) => (
@@ -314,15 +241,7 @@ export default function App() {
             
             {/* Main Logo Container */}
             <div className="relative flex items-center justify-center w-44 h-44 overflow-hidden border-2 border-amber-500/40 rounded-full bg-black shadow-[0_0_80px_rgba(251,191,36,0.2)]">
-              <img 
-                src="/cristal-reva-logo-1.png" 
-                alt="Cristal Reva Logo"
-                className="w-full h-full object-contain p-4 transition-all duration-700 hover:scale-110"
-                style={{
-                  filter: 'invert(1) sepia(1) saturate(5) hue-rotate(10deg) brightness(1.2) contrast(1.2)',
-                }}
-                referrerPolicy="no-referrer"
-              />
+              <CristalRevaLogo size={140} />
             </div>
 
             {/* Floating Sparkles */}
