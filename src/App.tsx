@@ -5,14 +5,12 @@
 
 import { motion } from "motion/react";
 import { Facebook, Instagram, Phone, ExternalLink, Sparkles } from "lucide-react";
-import cristalRevaLogo from "./assets/cristal-reva-logo.jpg";
-import chaplinLogo from "./assets/chaplin.jpg";
 
 // Custom Logo component to match the user's image
 const CristalRevaLogo = ({ className, size = 120 }: { className?: string, size?: number }) => (
   <div className={`relative flex items-center justify-center ${className}`} style={{ width: size, height: size }}>
     <img 
-      src={cristalRevaLogo} 
+      src={`${import.meta.env.BASE_URL}cristal-reva-logo.jpg`} 
       alt="Cristal Reva Logo" 
       className="w-full h-full object-cover rounded-full"
       referrerPolicy="no-referrer"
@@ -207,7 +205,7 @@ export default function App() {
             </p>
             <div className="w-12 h-12 rounded-xl overflow-hidden border border-amber-500/20 shadow-lg shadow-amber-500/5 bg-white/5 p-1">
               <img 
-                src={chaplinLogo} 
+                src={`${import.meta.env.BASE_URL}chaplin-chap-logo.png`} 
                 alt="Chaplin Chap Logo" 
                 className="w-full h-full object-contain rounded-lg"
                 referrerPolicy="no-referrer"
